@@ -16,16 +16,14 @@ def get_coins_bybit(top):
 
 
 def find_coins_by_timeframe(folder_path, timeframe):
-    # Регулярное выражение для поиска совпадений
     pattern = rf".*_(\w+),\s{timeframe}.*\.csv"
 
-    coins = set()  # Используем множество, чтобы избежать дубликатов
+    coins = set()
 
-    # Поиск файлов в папке
     for filename in os.listdir(folder_path):
         match = re.match(pattern, filename)
         if match:
-            coin = match.group(1)  # Извлекаем совпадение для coin
+            coin = match.group(1)
             coins.add(coin)
     return list(coins)
 

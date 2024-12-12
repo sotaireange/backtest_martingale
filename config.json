@@ -20,7 +20,7 @@
       "min":2,
       "max": 2
     },
-    "top": 25,
+    "top": 10,
     "timeframe": 60
   },
   "by_coin": {
@@ -36,6 +36,6 @@
   "bybit": 1,
   "core": 24,
   "limit": 1000,
-  "use_folder": 1,
+  "use_folder": 0,
   "folder_path": "C:\\Users\\sallo\\Desktop\\FreeLance\\bybit\\margingale_backtest\\TW"
 }

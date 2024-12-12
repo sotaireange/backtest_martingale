@@ -35,7 +35,7 @@ async def backtest_coin_with_param(data):
 
 
 
-    print(f'Начало сбора, параметры:\n{data[indicator]['by_coin']}')
+    print(fr'Начало сбора, параметры:\n{data[indicator]['by_coin']}')
     rows=[]
 
     for i,coin in enumerate(coins):

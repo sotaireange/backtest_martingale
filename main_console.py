@@ -23,6 +23,7 @@ async def main():
 
         command = input("Введите команду (run, coin, analysis): ").strip().lower()
         if command == "run":
+            data=read_data()
             await backtest_coins_by_params(data)
             print('Сбор данных завершен')
         elif command == "coin":

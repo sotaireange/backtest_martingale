@@ -4,12 +4,12 @@ import logging
 from pybit.unified_trading import HTTP
 from .get_coins import get_coins
 from .get_df import get_df
-from .backtest import backtest_coin
+from .backtest import backtest
 from .utils import *
 
 
 async def backtest_coin_with_param(data):
-    indicator='martingale'
+    indicator=data['indicator']
     fieldnames=get_fieldnames(indicator)
     data_signal=get_data_signal(data,indicator)
     timeframe=data[indicator].get('by_coin').get('timeframe')
@@ -41,7 +41,7 @@ async def backtest_coin_with_param(data):
     for i,coin in enumerate(coins):
         df=get_df(client,coin,timeframe,data['limit'],folder_path)
         try:
-            res=backtest_coin(df,data_signal)
+            res=backtest(df,data_signal,indicator)
 
 
             row = get_row(coin,timeframe,data_signal,res,indicator)

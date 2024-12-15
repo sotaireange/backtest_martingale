@@ -1,0 +1,85 @@
+{"martingale": {
+  "params": {
+    "start_position_size": {
+      "min": 10,
+      "max": 11
+    },
+    "takeprofit": {
+      "min": 5,
+      "max": 6
+    },
+    "start_martingale_percent": {
+      "min": 1,
+      "max": 2
+    },
+    "martingale_multiplayer": {
+      "min":2,
+      "max": 2
+    },
+    "bb_deviation": {
+      "min":2,
+      "max": 2
+    },
+    "top": 10,
+    "timeframe": 60
+  },
+  "by_coin": {
+    "start_position_size": 10,
+    "takeprofit": 2,
+    "start_martingale_percent": 2,
+    "martingale_multiplayer": 2,
+    "bb_deviation": 2,
+    "top": 1000,
+    "timeframe": 60
+  }},
+  "martingale_adv": {
+    "params": {
+      "start_position_size": {
+        "min": 10,
+        "max": 11
+      },
+      "takeprofit": {
+        "min": 5,
+        "max": 6
+      },
+      "start_martingale_percent": {
+        "min": 1,
+        "max": 2
+      },
+      "martingale_multiplayer": {
+        "min":2,
+        "max": 2
+      },
+      "bb_deviation": {
+        "min":2,
+        "max": 2
+      },
+      "correction_buy_mult": {
+        "min":2,
+        "max": 2
+      },
+      "takeprofit_mult": {
+        "min":1.5,
+        "max": 2
+      },
+      "top": 10,
+      "timeframe": 60
+    },
+    "by_coin": {
+      "start_position_size": 10,
+      "takeprofit": 2,
+      "start_martingale_percent": 2,
+      "martingale_multiplayer": 2,
+      "bb_deviation": 2,
+      "correction_buy_mult": 2,
+      "takeprofit_mult": 2,
+      "top": 1000,
+      "timeframe": 60
+    }},
+  "indicator": "martingale_adv",
+  "bybit": 1,
+  "core": 24,
+  "limit": 1000,
+  "use_folder": 0,
+  "folder_path": "C:\\Users\\sallo\\Desktop\\FreeLance\\bybit\\margingale_backtest\\TW"
+}

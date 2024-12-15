@@ -13,7 +13,7 @@ logging.basicConfig(level=logging.INFO)
 from .get_combinations_params import get_data_for_signal
 from .get_coins import get_coins
 from .get_df import get_df
-from .backtest import backtest_coin
+from .backtest import backtest
 from .utils import *
 
 def iter_coin_by_params(coins,client,timeframe,data_signals,data,file_path,fieldnames,indicator,folder_path):
@@ -24,7 +24,7 @@ def iter_coin_by_params(coins,client,timeframe,data_signals,data,file_path,field
             rows=[]
             for data_signal in data_signals:
                 try:
-                    res=backtest_coin(df,data_signal)
+                    res=backtest(df,data_signal,indicator)
                     row = get_row(coin,timeframe,data_signal,res,indicator)
                     rows.append(row)
                 except Exception as e:
@@ -36,13 +36,13 @@ def iter_coin_by_params(coins,client,timeframe,data_signals,data,file_path,field
 
             logging.info(f'{coin} is finish {i+1}/{len(coins)}')
     except Exception as e:
-        logging.error(f'Main error {e}')
+        logging.error(f'Main error {e}',exc_info=True)
 
 
 
 async def backtest_coins_by_params(data): #TODO: Гдето тут нужно исправитть чтобы использовать folder
     try:
-        indicator='martingale'
+        indicator=data['indicator']
         fieldnames=get_fieldnames(indicator)
         timeframe=data[indicator].get('params',{}).get('timeframe',30)
         top=data[indicator].get('params',{}).get('top',100)

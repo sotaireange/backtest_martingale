@@ -4,7 +4,11 @@ import pandas as pd
 
 def get_keys(indicator):
     if indicator=='martingale':
-        return ['start_position_size', 'takeprofit', 'start_martingale_percent', 'martingale_multiplayer','bb_deviation']
+        keys=['start_position_size', 'takeprofit', 'start_martingale_percent', 'martingale_multiplayer','bb_deviation']
+    elif indicator=='martingale_mult':
+        keys =['start_position_size', 'takeprofit', 'start_martingale_percent', 'martingale_multiplayer','bb_deviation','correction_buy_mult','takeprofit_mult']
+    return keys
+
 
 def get_matching_rows(df_filtered,row,indicator='martingale',coin=False):
     if indicator=='martingale':
@@ -16,8 +20,19 @@ def get_matching_rows(df_filtered,row,indicator='martingale',coin=False):
             (df_filtered['bb_deviation'] == row['bb_deviation']) &
             ((df_filtered['coin'] != row['coin']) if coin else True)
             ]
+    elif indicator=='martingale':
+        matching_rows = df_filtered[
+            (df_filtered['start_position_size'] == row['start_position_size']) &
+            (df_filtered['takeprofit'] == row['takeprofit']) &
+            (df_filtered['start_martingale_percent'] == row['start_martingale_percent']) &
+            (df_filtered['martingale_multiplayer'] == row['martingale_multiplayer']) &
+            (df_filtered['bb_deviation'] == row['bb_deviation']) &
+            (df_filtered['correction_buy_mult'] == row['correction_buy_mult']) &
+            (df_filtered['takeprofit_mult'] == row['takeprofit_mult']) &
+            ((df_filtered['coin'] != row['coin']) if coin else True)
+            ]
 
-        return matching_rows
+    return matching_rows
 
 
 
